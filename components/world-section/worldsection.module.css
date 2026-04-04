@@ -52,6 +52,12 @@
   z-index: 0;
 }
 
+@media (max-width: 768px) {
+  .heroImage {
+    object-position: 20% top;
+  }
+}
+
 .inner {
   position: relative;
   z-index: 1;
