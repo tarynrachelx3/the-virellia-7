@@ -29,7 +29,7 @@ export default function WorldSection() {
             buttonLabel="EXPLORE NOVA"
             imageSrc="/images/nova-card.png"
             align="left"
-            backgroundPosition="12% center"
+            backgroundPosition="5% center"
           />
 
           <TransmissionCard
