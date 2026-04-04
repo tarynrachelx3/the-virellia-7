@@ -14,8 +14,9 @@
 .copy {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  flex: 1;
   max-width: 58%;
+  justify-content: space-between;
 }
 
 .copyLeft {
