@@ -20,21 +20,19 @@ export default function CharacterCard({
   align = "left",
   backgroundPosition = "center",
 }: CharacterCardProps) {
-  const textRight = align === "right";
+  const copyClass = `${styles.copy} ${
+    align === "right" ? styles.copyRight : styles.copyLeft
+  }`;
 
   return (
     <FeatureCard
       className={styles.card}
       backgroundImage={imageSrc}
       backgroundPosition={backgroundPosition}
-      overlayDirection={textRight ? "right" : "left"}
+      overlayDirection={align === "right" ? "right" : "left"}
     >
       <div className={styles.content}>
-        <div
-          className={`${styles.copy} ${
-            textRight ? styles.copyRight : styles.copyLeft
-          }`}
-        >
+        <div className={copyClass}>
           <h3 className={styles.title}>{title}</h3>
           <p className={styles.subtitle}>{subtitle}</p>
           <p className={styles.body}>{body}</p>
