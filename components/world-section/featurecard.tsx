@@ -17,18 +17,17 @@ export default function FeatureCard({
   overlayDirection = "left",
 }: FeatureCardProps) {
   const style = {
-    ["--feature-card-bg" as string]: backgroundImage
+    ["--feature-card-bg"]: backgroundImage
       ? `url("${backgroundImage}")`
       : "none",
-    ["--feature-card-bg-position" as string]: backgroundPosition,
+    ["--feature-card-bg-position"]: backgroundPosition,
   } as CSSProperties;
 
-  const overlayClass =
-    overlayDirection === "right"
-      ? styles.overlayRight
-      : overlayDirection === "center"
-      ? styles.overlayCenter
-      : styles.overlayLeft;
+  const overlayClass = {
+    left: styles.overlayLeft,
+    right: styles.overlayRight,
+    center: styles.overlayCenter,
+  }[overlayDirection];
 
   return (
     <article className={`${styles.card} ${overlayClass} ${className}`} style={style}>

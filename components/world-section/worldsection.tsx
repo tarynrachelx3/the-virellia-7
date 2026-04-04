@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./worldsection.module.css";
-import SectionIntro from "./sectionintro";
-import CardsGrid from "./cardsgrid";
+import sectionStyles from "./sectionintro.module.css";
+import gridStyles from "./cardsgrid.module.css";
 import CharacterCard from "./charactercard";
 import TransmissionCard from "./transmissioncard";
 
@@ -17,11 +17,16 @@ export default function WorldSection() {
           />
 
       <div className={styles.inner}>
-        <SectionIntro
-          eyebrow="A WORLD BUILT ON GLAMOUR, GRAVITY, AND BAD DECISIONS"
-          description="Welcome to Virellia-7, where alien pop royalty, chaotic lore, and emotionally expensive decisions live under the same stars."
-        />
-        <CardsGrid>
+        <div className={sectionStyles.intro}>
+          <h2 className={sectionStyles.title}>
+            A WORLD BUILT ON GLAMOUR, GRAVITY, AND BAD DECISIONS
+          </h2>
+          <p className={sectionStyles.description}>
+            Welcome to Virellia-7, where alien pop royalty, chaotic lore, and emotionally expensive decisions live under the same stars.
+          </p>
+        </div>
+
+        <div className={gridStyles.grid}>
           <CharacterCard
             title="NOVA VOX"
             subtitle="Alien pop sovereign."
@@ -29,7 +34,7 @@ export default function WorldSection() {
             buttonLabel="EXPLORE NOVA"
             imageSrc="/images/nova-card.png"
             align="left"
-            backgroundPosition="12% center"
+            backgroundPosition="5% center"
           />
 
           <TransmissionCard
@@ -51,7 +56,7 @@ export default function WorldSection() {
             align="right"
             backgroundPosition="100% center"
           />
-        </CardsGrid>
+        </div>
       </div>
     </section>
   );
