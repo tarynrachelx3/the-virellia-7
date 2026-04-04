@@ -38,8 +38,8 @@ export default function WorldSection() {
             body="Some people move on. Others keep orbiting."
             primaryLabel="WATCH"
             secondaryLabel="STREAM"
-            tertiaryLabel="VSS TRANSMIT CO."
-            backgroundSrc="/images/transmission-card-bg.jpg"
+            tertiaryLabel="JOIN TRANSMISSION"
+            backgroundSrc="/images/transmission-card-bg.png"
           />
 
           <CharacterCard
