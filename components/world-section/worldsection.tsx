@@ -39,7 +39,7 @@ export default function WorldSection() {
             primaryLabel="WATCH"
             secondaryLabel="STREAM"
             tertiaryLabel="JOIN TRANSMISSION"
-            backgroundSrc="/images/transmission-card-bg.jpg"
+            backgroundSrc="/images/transmission-card-bg.png"
           />
 
           <CharacterCard
