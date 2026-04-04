@@ -1,0 +1,61 @@
+.section {
+  position: relative;
+  width: 100%;
+  margin-top: -20px;
+  padding: 120px 24px 110px;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(2, 4, 11, 1) 0%,
+      rgba(4, 6, 13, 0.95) 10%,
+      rgba(6, 9, 18, 0.75) 24%,
+      rgba(6, 9, 18, 0.35) 42%,
+      rgba(6, 9, 18, 0) 62%
+    ),
+    radial-gradient(circle at 20% 18%, rgba(90, 132, 255, 0.1), transparent 24%),
+    radial-gradient(circle at 82% 28%, rgba(255, 92, 196, 0.12), transparent 24%),
+    radial-gradient(circle at 50% 78%, rgba(164, 113, 255, 0.08), transparent 28%),
+    linear-gradient(180deg, #02040b 0%, #060914 46%, #05060b 100%);
+  overflow: hidden;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.8) 0.8px, transparent 1px);
+  background-size: 120px 120px;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.section::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 220px;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(2, 4, 11, 1) 0%,
+      rgba(2, 4, 11, 0.92) 22%,
+      rgba(2, 4, 11, 0.55) 58%,
+      rgba(2, 4, 11, 0) 100%
+    );
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  padding: 88px 24px 110px;
+}

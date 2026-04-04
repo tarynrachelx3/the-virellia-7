@@ -1,0 +1,651 @@
+/* =========================================================
+   1) ROOT TOKENS
+   ========================================================= */
+:root {
+  --background: #07070b;
+  --background-soft: #11111a;
+  --foreground: #f5f7fb;
+  --muted: #b4b8c7;
+  --border: rgba(255, 255, 255, 0.1);
+  --accent: #7c3aed;
+  --accent-2: #22c55e;
+  --max-width: 1120px;
+  --radius: 24px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+  --header-height: 92px;
+  --announcement-height: 44px;
+  --header-border: rgba(255, 255, 255, 0.14);
+  --text-main: rgba(255, 255, 255, 0.92);
+  --text-soft: rgba(255, 255, 255, 0.72);
+  --text-dim: rgba(255, 255, 255, 0.58);
+  --accent-pink: #d88ab6;
+  --accent-line: rgba(220, 180, 255, 0.18);
+  --page-bg: #05060b;
+  --font-cinzel: "Cinzel", serif;
+  --font-cormorant: "Cormorant Garamond", serif;
+}
+
+/* =========================================================
+   2) RESET / BASE
+   ========================================================= */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--page-bg);
+  color: var(--foreground);
+  font-family: var(--font-cinzel), serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   3) LAYOUT HELPERS
+   ========================================================= */
+.container {
+  width: min(100% - 2rem, var(--max-width));
+  margin: 0 auto;
+}
+
+.section {
+  padding: 1.5rem 0 4rem;
+}
+
+.grid-two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+/* =========================================================
+   4) HEADER / NAV SHELL
+   ========================================================= */
+.site-header {
+  position: relative;
+  z-index: 50;
+  width: 100%;
+  border-bottom: 1px solid var(--header-border);
+  background: #05060b;
+  overflow: hidden;
+}
+
+.header-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to bottom, rgba(2, 3, 8, 0.58), rgba(2, 3, 8, 0.42)),
+    url("/images/header/header-nav-bg.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.92;
+  pointer-events: none;
+}
+
+.nav-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.nav-inner {
+  min-height: var(--header-height);
+  display: grid;
+  grid-template-columns: 260px 1fr 60px;
+  align-items: center;
+  gap: 2rem;
+  width: min(1400px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 0.9rem 0 0.8rem;
+}
+
+/* =========================================================
+   5) BRAND / LOGO
+   ========================================================= */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  min-width: 220px;
+}
+
+.brand-logo {
+  display: block;
+  width: auto;
+  height: 56px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* =========================================================
+   6) DESKTOP NAV LINKS
+   ========================================================= */
+.main-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.7rem;
+  flex-wrap: wrap;
+  font-size: clamp(1.25rem, 1.6vw, 2rem);
+}
+
+.nav-link {
+  position: relative;
+  font-size: 0.88rem;
+  letter-spacing: 0.18em;
+  color: var(--text-main);
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.45rem;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.85),
+    transparent
+  );
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* =========================================================
+   7) HEADER ACTIONS / ICONS / HAMBURGER
+   ========================================================= */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.icon-button {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--text-main);
+  width: auto;
+  height: auto;
+  padding: 0;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 1.15rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+}
+
+.desktop-icon-button {
+  display: inline-flex;
+}
+
+.hamburger-button {
+  display: none;
+  position: relative;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hamburger-button span {
+  display: block;
+  width: 16px;
+  height: 1.5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  transition:
+    transform 0.22s ease,
+    opacity 0.22s ease;
+}
+
+.hamburger-button.is-open span:nth-child(1) {
+  transform: translateY(5.5px) rotate(45deg);
+}
+
+.hamburger-button.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-button.is-open span:nth-child(3) {
+  transform: translateY(-5.5px) rotate(-45deg);
+}
+
+/* =========================================================
+   8) ANNOUNCEMENT BAR
+   ========================================================= */
+.announcement-bar {
+  position: relative;
+  min-height: var(--announcement-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0 1rem;
+  text-align: center;
+  border-top: 1px solid var(--accent-line);
+  border-bottom: 1px solid var(--accent-line);
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(8, 8, 16, 0.5),
+      rgba(20, 10, 24, 0.35),
+      rgba(8, 8, 16, 0.5)
+    ),
+    url("/images/header/header-announcement-bg.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.announcement-bar::before,
+.announcement-bar::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: min(1200px, calc(100% - 40px));
+  height: 1px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  opacity: 0.65;
+  background-image: url("/images/header/divider-line.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+.announcement-bar::before {
+  top: 0;
+}
+
+.announcement-bar::after {
+  bottom: 0;
+}
+
+.announcement-label,
+.announcement-text,
+.announcement-watch,
+.announcement-highlight {
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+}
+
+.announcement-label {
+  color: var(--text-soft);
+  text-transform: uppercase;
+}
+
+.announcement-text {
+  color: var(--text-soft);
+  text-transform: uppercase;
+}
+
+.announcement-highlight {
+  color: var(--accent-pink);
+}
+
+.announcement-watch {
+  color: var(--text-main);
+  opacity: 0.88;
+}
+
+.announcement-watch:hover,
+.announcement-highlight:hover {
+  opacity: 1;
+}
+
+/* =========================================================
+   9) BUTTONS
+   ========================================================= */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 1.2rem;
+  border-radius: 999px;
+  font-weight: 700;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button-primary {
+  background: var(--foreground);
+  color: #09090f;
+}
+
+.button-secondary {
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* =========================================================
+   10) CARDS / CTA / FOOTER
+   ========================================================= */
+.card {
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  box-shadow: var(--shadow);
+}
+
+.cta-card {
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+
+.cta-card .button {
+  margin-top: 0.75rem;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 0 2rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.footer-inner p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* =========================================================
+   11) MOBILE MENU
+   ========================================================= */
+.mobile-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 79;
+  background: rgba(3, 4, 10, 0.62);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.mobile-menu-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 80;
+  width: min(88vw, 380px);
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: 1.1rem 1rem 1.2rem;
+  background:
+    linear-gradient(180deg, rgba(7, 8, 16, 0.94), rgba(8, 8, 14, 0.98)),
+    url("/images/header/header-announcement-bg.png");
+  background-size: cover;
+  background-position: center;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.45);
+  transform: translateX(105%);
+  transition: transform 0.28s ease;
+}
+
+.mobile-menu.is-open {
+  transform: translateX(0);
+}
+
+.mobile-menu-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(220, 180, 255, 0.16);
+}
+
+.mobile-menu-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.mobile-close-button {
+  appearance: none;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.88);
+  cursor: pointer;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 0 1.25rem;
+}
+
+.mobile-nav-link {
+  display: block;
+  padding: 0.95rem 0.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.96rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.mobile-menu-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(220, 180, 255, 0.16);
+}
+
+.mobile-menu-kicker {
+  margin: 0 0 0.7rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.mobile-feature-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem;
+  border: 1px solid rgba(220, 180, 255, 0.16);
+  border-radius: 18px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.03)
+  );
+}
+
+.mobile-feature-label {
+  font-size: 0.98rem;
+  color: rgba(216, 138, 182, 1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mobile-feature-meta {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   12) RESPONSIVE - HEADER TO MOBILE NAV SWITCH
+   ========================================================= */
+@media (max-width: 900px) {
+  .nav-inner {
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    width: min(100% - 24px, 1400px);
+    padding: 0.85rem 0;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .brand-logo {
+    height: 44px;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .desktop-icon-button {
+    display: none;
+  }
+
+  .hamburger-button {
+    display: inline-flex;
+  }
+
+  .announcement-bar {
+    padding: 0.65rem 0.8rem;
+  }
+}
+
+/* =========================================================
+   13) RESPONSIVE - TABLET / MOBILE CONTENT
+   ========================================================= */
+@media (max-width: 768px) {
+  .grid-two {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+  }
+}
+
+/* =========================================================
+   14) RESPONSIVE - SMALL MOBILE
+   ========================================================= */
+@media (max-width: 640px) {
+  .brand-logo {
+    height: 36px;
+  }
+
+  .announcement-bar {
+    flex-wrap: wrap;
+    gap: 0.3rem 0.45rem;
+  }
+
+  .announcement-label,
+  .announcement-text,
+  .announcement-watch,
+  .announcement-highlight {
+    font-size: 0.74rem;
+  }
+
+  .mobile-menu {
+    width: 100%;
+    border-left: none;
+  }
+
+  .mobile-nav-link {
+    font-size: 0.9rem;
+  }
+}

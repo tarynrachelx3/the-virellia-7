@@ -1,0 +1,129 @@
+.card {
+  height: 100%;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  min-height: 420px;
+  padding: 24px 22px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  max-width: 58%;
+}
+
+.copyLeft {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.copyRight {
+  margin-left: auto;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.title {
+  margin: 0 0 10px;
+  color: rgba(244, 240, 255, 0.96);
+  font-size: clamp(1.8rem, 2vw, 2.3rem);
+  line-height: 1.02;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: var(--font-cinzel), serif;
+  text-wrap: balance;
+}
+
+.subtitle {
+  margin: 0 0 12px;
+  color: rgba(227, 232, 255, 0.84);
+  font-size: 0.98rem;
+  line-height: 1.45;
+}
+
+.body {
+  margin: 0 0 24px;
+  color: rgba(217, 212, 229, 0.74);
+  font-size: 0.96rem;
+  line-height: 1.6;
+  max-width: 260px;
+}
+
+.copyRight .body {
+  margin-left: auto;
+}
+
+.button {
+  margin-top: auto;
+  padding: 12px 18px;
+  border: 1px solid rgba(193, 199, 255, 0.28);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.03)
+  );
+  color: rgba(246, 242, 255, 0.95);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.42);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.04)
+  );
+}
+
+@media (max-width: 1100px) {
+  .content {
+    min-height: 380px;
+  }
+
+  .copy {
+    max-width: 62%;
+  }
+}
+
+@media (max-width: 720px) {
+  .content {
+    min-height: 400px;
+    padding: 20px 18px 18px;
+  }
+
+  .copy {
+    max-width: 100%;
+  }
+
+  .copyLeft {
+    padding-right: 108px;
+  }
+
+  .copyRight {
+    padding-left: 108px;
+  }
+
+  .title {
+    font-size: 1.65rem;
+  }
+
+  .subtitle,
+  .body {
+    font-size: 0.92rem;
+  }
+}

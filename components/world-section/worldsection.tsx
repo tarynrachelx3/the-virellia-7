@@ -1,0 +1,58 @@
+import Image from "next/image";
+import styles from "./worldsection.module.css";
+import SectionIntro from "./sectionintro";
+import CardsGrid from "./cardsgrid";
+import CharacterCard from "./charactercard";
+import TransmissionCard from "./transmissioncard";
+
+export default function WorldSection() {
+  return (
+    <section className={styles.section}>
+          <Image
+            src="/images/world-section/world-section-bg.png"
+            alt="Nova Vox and Orbit the Oracle"
+            fill
+            priority
+            className={styles.heroImage}
+          />
+
+      <div className={styles.inner}>
+        <SectionIntro
+          eyebrow="A WORLD BUILT ON GLAMOUR, GRAVITY, AND BAD DECISIONS"
+          description="Welcome to Virellia-7, where alien pop royalty, chaotic lore, and emotionally expensive decisions live under the same stars."
+        />
+        <CardsGrid>
+          <CharacterCard
+            title="NOVA VOX"
+            subtitle="Alien pop sovereign."
+            body="Velvet menace. Center of gravity. She does not enter the room. The room adjusts."
+            buttonLabel="EXPLORE NOVA"
+            imageSrc="/images/nova-card.png"
+            align="left"
+            backgroundPosition="12% center"
+          />
+
+          <TransmissionCard
+            eyebrow="LATEST TRANSMISSION"
+            title="LOW GRAVITY PROBLEMS"
+            body="Some people move on. Others keep orbiting."
+            primaryLabel="WATCH"
+            secondaryLabel="STREAM"
+            tertiaryLabel="VSS TRANSMIT CO."
+            backgroundSrc="/images/transmission-card-bg.jpg"
+          />
+
+          <CharacterCard
+            title="ORBIT THE ORACLE"
+            subtitle="Romantic ruin."
+            body="Glorious overreaction. Titling every heartbreak like a prophecy. He moved on. In a poem."
+            buttonLabel="ENTER ORBIT"
+            imageSrc="/images/orbit-card.png"
+            align="right"
+            backgroundPosition="100% center"
+          />
+        </CardsGrid>
+      </div>
+    </section>
+  );
+}

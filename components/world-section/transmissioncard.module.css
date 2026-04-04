@@ -1,0 +1,128 @@
+.card {
+  height: 100%;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 62%, rgba(215, 232, 255, 0.24), transparent 14%),
+    radial-gradient(circle at 72% 28%, rgba(255, 120, 211, 0.22), transparent 18%),
+    radial-gradient(circle at 30% 32%, rgba(121, 170, 255, 0.18), transparent 18%),
+    linear-gradient(180deg, rgba(9, 12, 24, 0.4), rgba(9, 12, 24, 0.74));
+  background-position: center;
+  background-size: cover;
+  opacity: 0.92;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(6, 9, 18, 0.2) 0%, rgba(6, 9, 18, 0.54) 100%);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  min-height: 420px;
+  padding: 34px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: rgba(241, 238, 252, 0.95);
+  font-size: 0.98rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: var(--font-cinzel), serif;
+}
+
+.title {
+  margin: 0 0 14px;
+  max-width: 430px;
+  color: rgba(249, 246, 255, 0.98);
+  font-size: clamp(1.7rem, 2.3vw, 2.35rem);
+  line-height: 1.06;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: var(--font-cinzel), serif;
+  text-wrap: balance;
+}
+
+.body {
+  margin: 0 0 30px;
+  max-width: 380px;
+  color: rgba(228, 221, 239, 0.78);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.actions {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.button {
+  padding: 12px 18px;
+  border: 1px solid rgba(201, 208, 255, 0.3);
+  background: rgba(12, 16, 28, 0.34);
+  color: rgba(246, 242, 255, 0.95);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.44);
+  background: rgba(20, 26, 43, 0.52);
+}
+
+.small {
+  font-size: 0.68rem;
+  letter-spacing: 0.11em;
+}
+
+@media (max-width: 1100px) {
+  .content {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 720px) {
+  .content {
+    padding: 28px 18px 18px;
+  }
+
+  .title {
+    font-size: 1.55rem;
+  }
+
+  .body {
+    font-size: 0.94rem;
+  }
+
+  .actions {
+    gap: 10px;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
