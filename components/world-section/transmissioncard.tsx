@@ -21,18 +21,11 @@ export default function TransmissionCard({
   backgroundSrc,
 }: TransmissionCardProps) {
   return (
-    <FeatureCard className={styles.card}>
-      <div
-        className={styles.background}
-        style={
-          backgroundSrc
-            ? { backgroundImage: `url(${backgroundSrc})` }
-            : undefined
-        }
-      />
-
-      <div className={styles.overlay} />
-
+    <FeatureCard
+      className={styles.card}
+      backgroundImage={backgroundSrc}
+      overlayDirection="center"
+    >
       <div className={styles.content}>
         <p className={styles.eyebrow}>{eyebrow}</p>
         <h3 className={styles.title}>{title}</h3>
