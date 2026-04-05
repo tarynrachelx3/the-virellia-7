@@ -254,6 +254,15 @@
 }
 
 @media (max-width: 768px) {
+  .hero {
+    min-height: calc(100vh + 300px);
+  }
+
+  .heroImage {
+    object-fit: cover;
+    object-position: center 22%;
+  }
+
   .heroContent {
     top: 57%;
     width: calc(100% - 28px);
