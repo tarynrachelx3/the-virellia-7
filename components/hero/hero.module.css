@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh + 260px);
   background: #02040b;
   overflow: hidden;
 }
@@ -12,7 +12,10 @@
 
 .media {
   position: absolute;
-  inset: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100vh;
   z-index: 0;
 }
 
@@ -58,8 +61,8 @@
 .heroContent {
   position: absolute;
   left: 50%;
-  top: 75%;
-  transform: translate(-50%, -50%);
+  top: 52%;
+  transform: translateX(-50%);
   width: min(1100px, calc(100% - 48px));
   text-align: center;
   z-index: 3;
@@ -244,7 +247,7 @@
 
 @media (max-width: 1200px) {
   .heroContent {
-    top: 75%;
+    top: 84%;
     width: min(980px, calc(100% - 40px));
   }
 
@@ -254,8 +257,12 @@
 }
 
 @media (max-width: 768px) {
+  .hero {
+    min-height: calc(100vh + 300px);
+  }
+
   .heroContent {
-    top: 57%;
+    top: 52%;
     width: calc(100% - 28px);
   }
 

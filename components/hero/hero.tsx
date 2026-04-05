@@ -28,8 +28,8 @@ export default function Hero() {
         </p>
 
         <div className={styles.heroButtons}>
-          <a href="#nova" className={styles.primaryButton}>ENTER NOVA'S WORLD</a>
-          <a href="#orbit" className={styles.secondaryButton}>ENTER ORBIT'S SPIRAL</a>
+          <a href="nova" className={styles.primaryButton}>ENTER NOVA'S WORLD</a>
+          <a href="orbit" className={styles.secondaryButton}>ENTER ORBIT'S SPIRAL</a>
           <a href="#transmission" className={styles.ghostButton}>LATEST TRANSMISSION</a>
         </div>
 
