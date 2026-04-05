@@ -7,7 +7,7 @@ export default function Hero() {
       <div className={styles.media}>
         <div className={styles.heroBackground}>
           <Image
-            src="/images/nova-orbit-hero-2.png"
+            src="/images/nova-orbit-hero-3.png"
             alt="Nova Vox and Orbit the Oracle"
             fill
             priority
@@ -28,8 +28,8 @@ export default function Hero() {
         </p>
 
         <div className={styles.heroButtons}>
-          <a href="#nova" className={styles.primaryButton}>ENTER NOVA'S WORLD</a>
-          <a href="#orbit" className={styles.secondaryButton}>ENTER ORBIT'S SPIRAL</a>
+          <a href="nova" className={styles.primaryButton}>ENTER NOVA'S WORLD</a>
+          <a href="orbit" className={styles.secondaryButton}>ENTER ORBIT'S SPIRAL</a>
           <a href="#transmission" className={styles.ghostButton}>LATEST TRANSMISSION</a>
         </div>
 

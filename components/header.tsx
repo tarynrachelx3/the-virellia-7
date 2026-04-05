@@ -6,8 +6,8 @@ import Link from "next/link";
 
 const navLinks = [
   { label: "HOME", href: "/" },
-  { label: "NOVA VOX", href: "/nova-vox" },
-  { label: "ORBIT THE ORACLE", href: "/orbit-the-oracle" },
+  { label: "NOVA VOX", href: "/nova" },
+  { label: "ORBIT THE ORACLE", href: "/orbit" },
   { label: "MUSIC", href: "/music" },
   { label: "EPISODES", href: "/episodes" },
   { label: "LORE", href: "/lore" },
