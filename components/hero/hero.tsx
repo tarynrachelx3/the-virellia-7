@@ -7,7 +7,7 @@ export default function Hero() {
       <div className={styles.media}>
         <div className={styles.heroBackground}>
           <Image
-            src="/images/nova-orbit-hero-2.png"
+            src="/images/nova-orbit-hero-5.png"
             alt="Nova Vox and Orbit the Oracle"
             fill
             priority
