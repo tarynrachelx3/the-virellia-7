@@ -1,6 +1,7 @@
 // app/nova/page.tsx
 
 import { novaPageContent } from "@/lib/novapagecontent";
+import './app/globals.css';
 import styles from "./nova.module.css";
 import Link from "next/link";
 
