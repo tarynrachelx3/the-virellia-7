@@ -4,10 +4,35 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const navLinks = [
+type NavItem =
+  | { label: string; href: string }
+  | {
+      label: string;
+      children: { label: string; href: string; blurb?: string }[];
+    };
+
+const navItems: NavItem[] = [
   { label: "HOME", href: "/" },
-  { label: "NOVA VOX", href: "/nova" },
-  { label: "ORBIT THE ORACLE", href: "/orbit" },
+  {
+    label: "CHARACTERS",
+    children: [
+      {
+        label: "NOVA VOX",
+        href: "/nova",
+        blurb: "Alien pop sovereign. Velvet menace. Center of gravity.",
+      },
+      {
+        label: "ORBIT THE ORACLE",
+        href: "/orbit",
+        blurb: "Romantic ruin. Prophet of emotional collapse.",
+      },
+      {
+        label: "MAIRA MOON",
+        href: "/maira",
+        blurb: "Human signal. Soft static. Close orbit.",
+      },
+    ],
+  },
   { label: "MUSIC", href: "/music" },
   { label: "EPISODES", href: "/episodes" },
   { label: "LORE", href: "/lore" },
@@ -16,6 +41,7 @@ const navLinks = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileCharactersOpen, setMobileCharactersOpen] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -24,7 +50,10 @@ export default function Header() {
     };
   }, [menuOpen]);
 
-  const closeMenu = () => setMenuOpen(false);
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setMobileCharactersOpen(false);
+  };
 
   return (
     <header className="site-header">
@@ -44,22 +73,56 @@ export default function Header() {
           </Link>
 
           <nav className="main-nav" aria-label="Primary navigation">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="nav-link">
-                {link.label}
-              </Link>
-            ))}
+            {navItems.map((item) =>
+              "href" in item ? (
+                <Link key={item.href} href={item.href} className="nav-link">
+                  {item.label}
+                </Link>
+              ) : (
+                <div key={item.label} className="nav-dropdown">
+                  <button
+                    type="button"
+                    className="nav-link nav-trigger"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    {item.label}
+                  </button>
+
+                  <div className="nav-mega-panel">
+                    <div className="nav-mega-header">
+                      <span className="nav-mega-kicker">Characters</span>
+                      <p className="nav-mega-copy">
+                        Main entities and close orbit.
+                      </p>
+                    </div>
+
+                    <div className="nav-mega-grid">
+                      {item.children.map((child) => (
+                        <Link key={child.href} href={child.href} className="character-card">
+                          <span className="character-card-name">{child.label}</span>
+                          {child.blurb ? (
+                            <span className="character-card-blurb">{child.blurb}</span>
+                          ) : null}
+                          <span className="character-card-cta">Enter</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )
+            )}
           </nav>
 
           <div className="nav-actions">
-            <button className="icon-button" type="button" aria-label="Portal">
-            <Image
+            <button className="icon-button desktop-icon-button" type="button" aria-label="Portal">
+              <Image
                 src="/images/header/virellia7-crest.png"
                 alt=""
                 width={48}
                 height={48}
                 className="corner-icon"
-            />
+              />
             </button>
 
             <button
@@ -102,17 +165,59 @@ export default function Header() {
       >
         <div className="mobile-menu-top">
           <span className="mobile-menu-label">Navigation</span>
-          <button className="mobile-close-button" type="button" onClick={closeMenu} aria-label="Close menu">
+          <button
+            className="mobile-close-button"
+            type="button"
+            onClick={closeMenu}
+            aria-label="Close menu"
+          >
             ×
           </button>
         </div>
 
         <nav className="mobile-nav" aria-label="Mobile navigation">
-          {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="mobile-nav-link" onClick={closeMenu}>
-              {link.label}
-            </Link>
-          ))}
+          <Link href="/" className="mobile-nav-link" onClick={closeMenu}>
+            HOME
+          </Link>
+
+          <div className="mobile-nav-group">
+            <button
+              type="button"
+              className={`mobile-nav-link mobile-nav-toggle ${
+                mobileCharactersOpen ? "is-open" : ""
+              }`}
+              aria-expanded={mobileCharactersOpen}
+              onClick={() => setMobileCharactersOpen((prev) => !prev)}
+            >
+              <span>CHARACTERS</span>
+              <span className="mobile-nav-toggle-icon">{mobileCharactersOpen ? "−" : "+"}</span>
+            </button>
+
+            <div className={`mobile-subnav ${mobileCharactersOpen ? "is-open" : ""}`}>
+              <Link href="/nova" className="mobile-subnav-link" onClick={closeMenu}>
+                NOVA VOX
+              </Link>
+              <Link href="/orbit" className="mobile-subnav-link" onClick={closeMenu}>
+                ORBIT THE ORACLE
+              </Link>
+              <Link href="/maira" className="mobile-subnav-link" onClick={closeMenu}>
+                MAIRA MOON
+              </Link>
+            </div>
+          </div>
+
+          <Link href="/music" className="mobile-nav-link" onClick={closeMenu}>
+            MUSIC
+          </Link>
+          <Link href="/episodes" className="mobile-nav-link" onClick={closeMenu}>
+            EPISODES
+          </Link>
+          <Link href="/lore" className="mobile-nav-link" onClick={closeMenu}>
+            LORE
+          </Link>
+          <Link href="/merch" className="mobile-nav-link" onClick={closeMenu}>
+            MERCH
+          </Link>
         </nav>
 
         <div className="mobile-menu-footer">

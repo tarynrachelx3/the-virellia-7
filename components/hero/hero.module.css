@@ -261,9 +261,14 @@
     min-height: calc(100vh + 300px);
   }
 
+  .heroBackground {
+    overflow: hidden;
+  }
+
   .heroImage {
     object-fit: cover;
-    object-position: center 22%;
+    object-position: center 20%;
+    transform: none;
   }
 
   .heroContent {
