@@ -19,6 +19,11 @@
   overflow: hidden;
 }
 
+.heroBackground {
+  position: absolute;
+  inset: 0;
+}
+
 .heroOverlay {
   position: absolute;
   inset: 0;
@@ -30,6 +35,13 @@
       rgba(5, 5, 5, 0.12)
     ),
     radial-gradient(circle at 50% 20%, rgba(255, 95, 95, 0.08), transparent 30%);
+}
+
+.heroImage {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  object-position: center;
 }
 
 .heroContent {

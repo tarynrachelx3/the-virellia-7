@@ -3,6 +3,7 @@
 import { novaPageContent } from "@/lib/novapagecontent";
 import styles from "./nova.module.css";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function NovaPage() {
   const { hero } = novaPageContent;
@@ -10,6 +11,15 @@ export default function NovaPage() {
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
+        <div className={styles.heroBackground}>
+          <Image
+            src="/images/nova-card.png"
+            alt="Nova"
+            fill
+            priority
+            className={styles.heroImage}
+          />
+        </div>
         <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
           <p className={styles.eyebrow}>{hero.eyebrow}</p>
