@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { orbitPageContent } from "@/lib/orbitpagecontent";
 import styles from "./orbit.module.css";
+import Image from "next/image";
 
 export default function OrbitPage() {
   const { hero } = orbitPageContent;
@@ -10,6 +11,15 @@ export default function OrbitPage() {
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
+        <div className={styles.heroBackground}>
+          <Image
+            src="/images/orbit-card.png"
+            alt="Orbit"
+            fill
+            priority
+            className={styles.heroImage}
+          />
+        </div>
         <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
           <p className={styles.eyebrow}>{hero.eyebrow}</p>
