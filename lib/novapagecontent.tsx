@@ -144,12 +144,12 @@ export const novaPageContent = {
     items: [
       {
         name: "Orbit the Oracle",
-        description: "Loud feelings. Worse decisions. Still orbiting.",
+        description: "A volatile signal with a habit of returning, no matter how clearly the distance is established.",
         href: "/orbit",
       },
       {
         name: "Maira",
-        description: "Human. Observant. Occasionally correct.",
+        description: "Her twin sister—quiet, observant, and tied to Nova in ways that feel deeper than explanation.",
         href: "/maira",
       },
     ],
