@@ -1,11 +1,12 @@
 // app/maira/page.tsx
 
 import Link from "next/link";
-import { mairaPageContent } from "@/lib/mairapagecontent";
-import styles from "./maira.module.css";
+import { MairaPageContent } from "@/lib/MairaPageContent";
+import styles from "./Maira.module.css";
+import TextSection from "@/components/TextSection";
 
 export default function MairaPage() {
-  const { hero } = mairaPageContent;
+  const { hero } = MairaPageContent;
 
   return (
     <main className={styles.page}>
@@ -31,12 +32,12 @@ export default function MairaPage() {
       </section>
 
       <TextSection
-        id={mairaPageContent.bio.id}
-        label={mairaPageContent.bio.sectionLabel}
-        title={mairaPageContent.bio.title}
+        id={MairaPageContent.bio.id}
+        label={MairaPageContent.bio.sectionLabel}
+        title={MairaPageContent.bio.title}
       >
         <div className={styles.copyStack}>
-          {mairaPageContent.bio.paragraphs.map((paragraph) => (
+          {MairaPageContent.bio.paragraphs.map((paragraph) => (
             <p key={paragraph} className={styles.bodyCopy}>
               {paragraph}
             </p>
@@ -45,12 +46,12 @@ export default function MairaPage() {
       </TextSection>
 
       <TextSection
-        id={mairaPageContent.traits.id}
-        label={mairaPageContent.traits.sectionLabel}
-        title={mairaPageContent.traits.title}
+        id={MairaPageContent.traits.id}
+        label={MairaPageContent.traits.sectionLabel}
+        title={MairaPageContent.traits.title}
       >
         <ul className={styles.traitGrid}>
-          {mairaPageContent.traits.items.map((item) => (
+          {MairaPageContent.traits.items.map((item) => (
             <li key={item} className={styles.traitCard}>
               {item}
             </li>
@@ -59,13 +60,13 @@ export default function MairaPage() {
       </TextSection>
 
       <TextSection
-        id={mairaPageContent.transmissions.id}
-        label={mairaPageContent.transmissions.sectionLabel}
-        title={mairaPageContent.transmissions.title}
+        id={MairaPageContent.transmissions.id}
+        label={MairaPageContent.transmissions.sectionLabel}
+        title={MairaPageContent.transmissions.title}
       >
-        <p className={styles.sectionIntro}>{mairaPageContent.transmissions.intro}</p>
+        <p className={styles.sectionIntro}>{MairaPageContent.transmissions.intro}</p>
         <div className={styles.cardGrid}>
-          {mairaPageContent.transmissions.items.map((item) => (
+          {MairaPageContent.transmissions.items.map((item) => (
             <article key={item.title} className={styles.infoCard}>
               <h3 className={styles.cardTitle}>{item.title}</h3>
               <p className={styles.cardText}>{item.caption}</p>
@@ -75,12 +76,12 @@ export default function MairaPage() {
       </TextSection>
 
       <TextSection
-        id={mairaPageContent.quotes.id}
-        label={mairaPageContent.quotes.sectionLabel}
-        title={mairaPageContent.quotes.title}
+        id={MairaPageContent.quotes.id}
+        label={MairaPageContent.quotes.sectionLabel}
+        title={MairaPageContent.quotes.title}
       >
         <div className={styles.quoteStack}>
-          {mairaPageContent.quotes.items.map((quote) => (
+          {MairaPageContent.quotes.items.map((quote) => (
             <blockquote key={quote} className={styles.quote}>
               “{quote.replace(/^“|”$/g, "")}”
             </blockquote>
@@ -89,12 +90,12 @@ export default function MairaPage() {
       </TextSection>
 
       <TextSection
-        id={mairaPageContent.personality.id}
-        label={mairaPageContent.personality.sectionLabel}
-        title={mairaPageContent.personality.title}
+        id={MairaPageContent.personality.id}
+        label={MairaPageContent.personality.sectionLabel}
+        title={MairaPageContent.personality.title}
       >
         <div className={styles.detailGrid}>
-          {mairaPageContent.personality.items.map((item) => (
+          {MairaPageContent.personality.items.map((item) => (
             <div key={item.label} className={styles.detailCard}>
               <p className={styles.detailLabel}>{item.label}</p>
               <p className={styles.detailValue}>{item.value}</p>
@@ -104,12 +105,12 @@ export default function MairaPage() {
       </TextSection>
 
       <TextSection
-        id={mairaPageContent.canon.id}
-        label={mairaPageContent.canon.sectionLabel}
-        title={mairaPageContent.canon.title}
+        id={MairaPageContent.canon.id}
+        label={MairaPageContent.canon.sectionLabel}
+        title={MairaPageContent.canon.title}
       >
         <div className={styles.detailGrid}>
-          {mairaPageContent.canon.stats.map((stat) => (
+          {MairaPageContent.canon.stats.map((stat) => (
             <div key={stat.label} className={styles.detailCard}>
               <p className={styles.detailLabel}>{stat.label}</p>
               <p className={styles.detailValue}>{stat.value}</p>
@@ -118,7 +119,7 @@ export default function MairaPage() {
         </div>
 
         <ul className={styles.noteList}>
-          {mairaPageContent.canon.notes.map((note) => (
+          {MairaPageContent.canon.notes.map((note) => (
             <li key={note} className={styles.noteItem}>
               {note}
             </li>
@@ -127,12 +128,12 @@ export default function MairaPage() {
       </TextSection>
 
       <TextSection
-        id={mairaPageContent.gallery.id}
-        label={mairaPageContent.gallery.sectionLabel}
-        title={mairaPageContent.gallery.title}
+        id={MairaPageContent.gallery.id}
+        label={MairaPageContent.gallery.sectionLabel}
+        title={MairaPageContent.gallery.title}
       >
         <div className={styles.galleryGrid}>
-          {mairaPageContent.gallery.captions.map((caption) => (
+          {MairaPageContent.gallery.captions.map((caption) => (
             <div key={caption} className={styles.galleryCard}>
               {caption}
             </div>
@@ -141,12 +142,12 @@ export default function MairaPage() {
       </TextSection>
 
       <TextSection
-        id={mairaPageContent.relationships.id}
-        label={mairaPageContent.relationships.sectionLabel}
-        title={mairaPageContent.relationships.title}
+        id={MairaPageContent.relationships.id}
+        label={MairaPageContent.relationships.sectionLabel}
+        title={MairaPageContent.relationships.title}
       >
         <div className={styles.cardGrid}>
-          {mairaPageContent.relationships.items.map((item) => (
+          {MairaPageContent.relationships.items.map((item) => (
             <Link key={item.name} href={item.href} className={styles.linkCard}>
               <h3 className={styles.cardTitle}>{item.name}</h3>
               <p className={styles.cardText}>{item.description}</p>
@@ -156,12 +157,12 @@ export default function MairaPage() {
       </TextSection>
 
       <TextSection
-        id={mairaPageContent.motifs.id}
-        label={mairaPageContent.motifs.sectionLabel}
-        title={mairaPageContent.motifs.title}
+        id={MairaPageContent.motifs.id}
+        label={MairaPageContent.motifs.sectionLabel}
+        title={MairaPageContent.motifs.title}
       >
         <ul className={styles.traitGrid}>
-          {mairaPageContent.motifs.items.map((item) => (
+          {MairaPageContent.motifs.items.map((item) => (
             <li key={item} className={styles.traitCard}>
               {item}
             </li>
@@ -170,12 +171,12 @@ export default function MairaPage() {
       </TextSection>
 
       <TextSection
-        id={mairaPageContent.status.id}
-        label={mairaPageContent.status.sectionLabel}
-        title={mairaPageContent.status.title}
+        id={MairaPageContent.status.id}
+        label={MairaPageContent.status.sectionLabel}
+        title={MairaPageContent.status.title}
       >
         <div className={styles.detailGrid}>
-          {mairaPageContent.status.items.map((item) => (
+          {MairaPageContent.status.items.map((item) => (
             <div key={item.label} className={styles.detailCard}>
               <p className={styles.detailLabel}>{item.label}</p>
               <p className={styles.detailValue}>{item.value}</p>
@@ -184,12 +185,12 @@ export default function MairaPage() {
         </div>
       </TextSection>
 
-      <section id={mairaPageContent.finalCta.id} className={styles.finalCta}>
-        <h2 className={styles.finalCtaTitle}>{mairaPageContent.finalCta.headline}</h2>
-        <p className={styles.finalCtaText}>{mairaPageContent.finalCta.subhead}</p>
+      <section id={MairaPageContent.finalCta.id} className={styles.finalCta}>
+        <h2 className={styles.finalCtaTitle}>{MairaPageContent.finalCta.headline}</h2>
+        <p className={styles.finalCtaText}>{MairaPageContent.finalCta.subhead}</p>
 
         <div className={styles.heroActions}>
-          {mairaPageContent.finalCta.actions.map((action) => (
+          {MairaPageContent.finalCta.actions.map((action) => (
             <Link
               key={action.label}
               href={action.href}
@@ -201,24 +202,5 @@ export default function MairaPage() {
         </div>
       </section>
     </main>
-  );
-}
-
-type TextSectionProps = {
-  id: string;
-  label: string;
-  title: string;
-  children: React.ReactNode;
-};
-
-function TextSection({ id, label, title, children }: TextSectionProps) {
-  return (
-    <section id={id} className={styles.section}>
-      <div className={styles.sectionHeader}>
-        <p className={styles.sectionLabel}>{label}</p>
-        <h2 className={styles.sectionTitle}>{title}</h2>
-      </div>
-      <div className={styles.sectionContent}>{children}</div>
-    </section>
   );
 }

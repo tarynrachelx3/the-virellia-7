@@ -1,6 +1,6 @@
-// lib/novaPageContent.ts
+// lib/NovaPageContent.ts
 
-export const novaPageContent = {
+export const NovaPageContent = {
   hero: {
     eyebrow: "VIRELLIA-7 // PRIMARY SIGNAL",
     headline: "Emotionally unavailable. Still your favorite.",
@@ -144,12 +144,12 @@ export const novaPageContent = {
     items: [
       {
         name: "Orbit the Oracle",
-        description: "Loud feelings. Worse decisions. Still orbiting.",
+        description: "Loud feelings, worse decisions, and a gravitational pull he still hasn’t escaped.",
         href: "/orbit",
       },
       {
         name: "Maira",
-        description: "Human. Observant. Occasionally correct.",
+        description: "Her twin sister—quiet, observant, and tied to Nova in ways that feel deeper than explanation.",
         href: "/maira",
       },
     ],

@@ -1,11 +1,12 @@
 // app/nova/page.tsx
 
-import { novaPageContent } from "@/lib/novapagecontent";
-import styles from "./nova.module.css";
+import { NovaPageContent } from "@/lib/NovaPageContent";
+import styles from "./Nova.module.css";
 import Link from "next/link";
+import TextSection from "@/components/TextSection";
 
 export default function NovaPage() {
-  const { hero } = novaPageContent;
+  const { hero } = NovaPageContent;
 
   return (
     <main className={styles.page}>
@@ -31,12 +32,12 @@ export default function NovaPage() {
       </section>
 
       <TextSection
-        id={novaPageContent.bio.id}
-        label={novaPageContent.bio.sectionLabel}
-        title={novaPageContent.bio.title}
+        id={NovaPageContent.bio.id}
+        label={NovaPageContent.bio.sectionLabel}
+        title={NovaPageContent.bio.title}
       >
         <div className={styles.copyStack}>
-          {novaPageContent.bio.paragraphs.map((paragraph) => (
+          {NovaPageContent.bio.paragraphs.map((paragraph) => (
             <p key={paragraph} className={styles.bodyCopy}>
               {paragraph}
             </p>
@@ -45,12 +46,12 @@ export default function NovaPage() {
       </TextSection>
 
       <TextSection
-        id={novaPageContent.traits.id}
-        label={novaPageContent.traits.sectionLabel}
-        title={novaPageContent.traits.title}
+        id={NovaPageContent.traits.id}
+        label={NovaPageContent.traits.sectionLabel}
+        title={NovaPageContent.traits.title}
       >
         <ul className={styles.traitGrid}>
-          {novaPageContent.traits.items.map((item) => (
+          {NovaPageContent.traits.items.map((item) => (
             <li key={item} className={styles.traitCard}>
               {item}
             </li>
@@ -59,13 +60,13 @@ export default function NovaPage() {
       </TextSection>
 
       <TextSection
-        id={novaPageContent.music.id}
-        label={novaPageContent.music.sectionLabel}
-        title={novaPageContent.music.title}
+        id={NovaPageContent.music.id}
+        label={NovaPageContent.music.sectionLabel}
+        title={NovaPageContent.music.title}
       >
-        <p className={styles.sectionIntro}>{novaPageContent.music.intro}</p>
+        <p className={styles.sectionIntro}>{NovaPageContent.music.intro}</p>
         <div className={styles.cardGrid}>
-          {novaPageContent.music.tracks.map((track) => (
+          {NovaPageContent.music.tracks.map((track) => (
             <article key={track.title} className={styles.infoCard}>
               <h3 className={styles.cardTitle}>{track.title}</h3>
               <p className={styles.cardText}>{track.description}</p>
@@ -75,12 +76,12 @@ export default function NovaPage() {
       </TextSection>
 
       <TextSection
-        id={novaPageContent.quotes.id}
-        label={novaPageContent.quotes.sectionLabel}
-        title={novaPageContent.quotes.title}
+        id={NovaPageContent.quotes.id}
+        label={NovaPageContent.quotes.sectionLabel}
+        title={NovaPageContent.quotes.title}
       >
         <div className={styles.quoteStack}>
-          {novaPageContent.quotes.items.map((quote) => (
+          {NovaPageContent.quotes.items.map((quote) => (
             <blockquote key={quote} className={styles.quote}>
               “{quote.replace(/^“|”$/g, "")}”
             </blockquote>
@@ -89,13 +90,13 @@ export default function NovaPage() {
       </TextSection>
 
       <TextSection
-        id={novaPageContent.transmissions.id}
-        label={novaPageContent.transmissions.sectionLabel}
-        title={novaPageContent.transmissions.title}
+        id={NovaPageContent.transmissions.id}
+        label={NovaPageContent.transmissions.sectionLabel}
+        title={NovaPageContent.transmissions.title}
       >
-        <p className={styles.sectionIntro}>{novaPageContent.transmissions.intro}</p>
+        <p className={styles.sectionIntro}>{NovaPageContent.transmissions.intro}</p>
         <div className={styles.cardGrid}>
-          {novaPageContent.transmissions.items.map((item) => (
+          {NovaPageContent.transmissions.items.map((item) => (
             <article key={item.title} className={styles.infoCard}>
               <h3 className={styles.cardTitle}>{item.title}</h3>
               <p className={styles.cardText}>{item.caption}</p>
@@ -105,12 +106,12 @@ export default function NovaPage() {
       </TextSection>
 
       <TextSection
-        id={novaPageContent.canon.id}
-        label={novaPageContent.canon.sectionLabel}
-        title={novaPageContent.canon.title}
+        id={NovaPageContent.canon.id}
+        label={NovaPageContent.canon.sectionLabel}
+        title={NovaPageContent.canon.title}
       >
         <div className={styles.detailGrid}>
-          {novaPageContent.canon.stats.map((stat) => (
+          {NovaPageContent.canon.stats.map((stat) => (
             <div key={stat.label} className={styles.detailCard}>
               <p className={styles.detailLabel}>{stat.label}</p>
               <p className={styles.detailValue}>{stat.value}</p>
@@ -119,7 +120,7 @@ export default function NovaPage() {
         </div>
 
         <ul className={styles.noteList}>
-          {novaPageContent.canon.notes.map((note) => (
+          {NovaPageContent.canon.notes.map((note) => (
             <li key={note} className={styles.noteItem}>
               {note}
             </li>
@@ -128,12 +129,12 @@ export default function NovaPage() {
       </TextSection>
 
       <TextSection
-        id={novaPageContent.gallery.id}
-        label={novaPageContent.gallery.sectionLabel}
-        title={novaPageContent.gallery.title}
+        id={NovaPageContent.gallery.id}
+        label={NovaPageContent.gallery.sectionLabel}
+        title={NovaPageContent.gallery.title}
       >
         <div className={styles.galleryCaptionGrid}>
-          {novaPageContent.gallery.captions.map((caption) => (
+          {NovaPageContent.gallery.captions.map((caption) => (
             <div key={caption} className={styles.galleryCaptionCard}>
               {caption}
             </div>
@@ -142,12 +143,12 @@ export default function NovaPage() {
       </TextSection>
 
       <TextSection
-        id={novaPageContent.personality.id}
-        label={novaPageContent.personality.sectionLabel}
-        title={novaPageContent.personality.title}
+        id={NovaPageContent.personality.id}
+        label={NovaPageContent.personality.sectionLabel}
+        title={NovaPageContent.personality.title}
       >
         <div className={styles.detailGrid}>
-          {novaPageContent.personality.items.map((item) => (
+          {NovaPageContent.personality.items.map((item) => (
             <div key={item.label} className={styles.detailCard}>
               <p className={styles.detailLabel}>{item.label}</p>
               <p className={styles.detailValue}>{item.value}</p>
@@ -157,12 +158,12 @@ export default function NovaPage() {
       </TextSection>
 
       <TextSection
-        id={novaPageContent.relationships.id}
-        label={novaPageContent.relationships.sectionLabel}
-        title={novaPageContent.relationships.title}
+        id={NovaPageContent.relationships.id}
+        label={NovaPageContent.relationships.sectionLabel}
+        title={NovaPageContent.relationships.title}
       >
         <div className={styles.cardGrid}>
-          {novaPageContent.relationships.items.map((item) => (
+          {NovaPageContent.relationships.items.map((item) => (
             <Link key={item.name} href={item.href} className={styles.linkCard}>
               <h3 className={styles.cardTitle}>{item.name}</h3>
               <p className={styles.cardText}>{item.description}</p>
@@ -172,12 +173,12 @@ export default function NovaPage() {
       </TextSection>
 
       <TextSection
-        id={novaPageContent.motifs.id}
-        label={novaPageContent.motifs.sectionLabel}
-        title={novaPageContent.motifs.title}
+        id={NovaPageContent.motifs.id}
+        label={NovaPageContent.motifs.sectionLabel}
+        title={NovaPageContent.motifs.title}
       >
         <ul className={styles.traitGrid}>
-          {novaPageContent.motifs.items.map((item) => (
+          {NovaPageContent.motifs.items.map((item) => (
             <li key={item} className={styles.traitCard}>
               {item}
             </li>
@@ -186,12 +187,12 @@ export default function NovaPage() {
       </TextSection>
 
       <TextSection
-        id={novaPageContent.status.id}
-        label={novaPageContent.status.sectionLabel}
-        title={novaPageContent.status.title}
+        id={NovaPageContent.status.id}
+        label={NovaPageContent.status.sectionLabel}
+        title={NovaPageContent.status.title}
       >
         <div className={styles.detailGrid}>
-          {novaPageContent.status.items.map((item) => (
+          {NovaPageContent.status.items.map((item) => (
             <div key={item.label} className={styles.detailCard}>
               <p className={styles.detailLabel}>{item.label}</p>
               <p className={styles.detailValue}>{item.value}</p>
@@ -201,29 +202,29 @@ export default function NovaPage() {
       </TextSection>
 
       <TextSection
-        id={novaPageContent.merch.id}
-        label={novaPageContent.merch.sectionLabel}
-        title={novaPageContent.merch.title}
+        id={NovaPageContent.merch.id}
+        label={NovaPageContent.merch.sectionLabel}
+        title={NovaPageContent.merch.title}
       >
         <div className={styles.merchRow}>
-          {novaPageContent.merch.items.map((item) => (
+          {NovaPageContent.merch.items.map((item) => (
             <span key={item} className={styles.merchTag}>
               {item}
             </span>
           ))}
         </div>
 
-        <Link href={novaPageContent.merch.cta.href} className={`${styles.button} ${styles.primary}`}>
-          {novaPageContent.merch.cta.label}
+        <Link href={NovaPageContent.merch.cta.href} className={`${styles.button} ${styles.primary}`}>
+          {NovaPageContent.merch.cta.label}
         </Link>
       </TextSection>
 
-      <section id={novaPageContent.finalCta.id} className={styles.finalCta}>
-        <h2 className={styles.finalCtaTitle}>{novaPageContent.finalCta.headline}</h2>
-        <p className={styles.finalCtaText}>{novaPageContent.finalCta.subhead}</p>
+      <section id={NovaPageContent.finalCta.id} className={styles.finalCta}>
+        <h2 className={styles.finalCtaTitle}>{NovaPageContent.finalCta.headline}</h2>
+        <p className={styles.finalCtaText}>{NovaPageContent.finalCta.subhead}</p>
 
         <div className={styles.heroActions}>
-          {novaPageContent.finalCta.actions.map((action) => (
+          {NovaPageContent.finalCta.actions.map((action) => (
             <Link
               key={action.label}
               href={action.href}
@@ -235,24 +236,5 @@ export default function NovaPage() {
         </div>
       </section>
     </main>
-  );
-}
-
-type TextSectionProps = {
-  id: string;
-  label: string;
-  title: string;
-  children: React.ReactNode;
-};
-
-function TextSection({ id, label, title, children }: TextSectionProps) {
-  return (
-    <section id={id} className={styles.section}>
-      <div className={styles.sectionHeader}>
-        <p className={styles.sectionLabel}>{label}</p>
-        <h2 className={styles.sectionTitle}>{title}</h2>
-      </div>
-      <div className={styles.sectionContent}>{children}</div>
-    </section>
   );
 }

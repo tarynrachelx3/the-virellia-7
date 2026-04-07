@@ -1,5 +1,5 @@
-import FeatureCard from "./featurecard";
-import styles from "./charactercard.module.css";
+import FeatureCard from "./FeatureCard";
+import styles from "./CharacterCard.module.css";
 
 type CharacterCardProps = {
   title: string;

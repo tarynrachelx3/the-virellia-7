@@ -1,6 +1,6 @@
-// lib/mairaPageContent.ts
+// lib/MairaPageContent.ts
 
-export const mairaPageContent = {
+export const MairaPageContent = {
   hero: {
     eyebrow: "VIRELLIA-7 // SOFT SIGNAL",
     headline: "i feel things… i just don’t explain them",
