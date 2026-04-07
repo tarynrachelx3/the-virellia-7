@@ -24,6 +24,16 @@
   background: linear-gradient(to top, rgba(5, 5, 5, 0.92), rgba(5, 5, 5, 0.25) 45%, rgba(5, 5, 5, 0.08));
 }
 
+.heroBackground {
+  position: absolute;
+  inset: 0;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: center;
+}
+
 .heroContent {
   position: relative;
   z-index: 2;

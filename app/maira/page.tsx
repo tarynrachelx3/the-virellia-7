@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { MairaPageContent } from "@/lib/MairaPageContent";
 import styles from "./Maira.module.css";
+import Image from "next/image";
 import TextSection from "@/components/TextSection";
 
 export default function MairaPage() {
@@ -11,6 +12,15 @@ export default function MairaPage() {
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
+        <div className={styles.heroBackground}>
+          <Image
+            src="/images/maira-card.png"
+            alt="Maira"
+            fill
+            priority
+            className={styles.heroImage}
+          />
+        </div>
         <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
           <p className={styles.eyebrow}>{hero.eyebrow}</p>

@@ -3,6 +3,7 @@
 import { NovaPageContent } from "@/lib/NovaPageContent";
 import styles from "./Nova.module.css";
 import Link from "next/link";
+import Image from "next/image";
 import TextSection from "@/components/TextSection";
 
 export default function NovaPage() {
@@ -11,6 +12,15 @@ export default function NovaPage() {
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
+        <div className={styles.heroBackground}>
+          <Image
+            src="/images/nova-card.png"
+            alt="Nova Vox"
+            fill
+            priority
+            className={styles.heroImage}
+          />
+        </div>
         <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
           <p className={styles.eyebrow}>{hero.eyebrow}</p>
