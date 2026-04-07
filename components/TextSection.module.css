@@ -1,0 +1,30 @@
+.section {
+  padding: 6rem 1.5rem;
+}
+
+.sectionHeader {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.sectionLabel {
+  margin: 0 0 0.875rem;
+  font-size: 0.75rem;
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 235, 0.68);
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: #f5f2eb;
+}
+
+.sectionContent {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+}

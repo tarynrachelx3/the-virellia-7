@@ -1,6 +1,6 @@
-// lib/orbitPageContent.ts
+// lib/OrbitPageContent.ts
 
-export const orbitPageContent = {
+export const OrbitPageContent = {
   hero: {
     eyebrow: "VIRELLIA-7 // UNSTABLE SIGNAL",
     headline: "He calls it closure. It’s usually a public event.",

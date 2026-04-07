@@ -1,9 +1,9 @@
 import Image from "next/image";
-import styles from "./worldsection.module.css";
-import sectionStyles from "./sectionintro.module.css";
-import gridStyles from "./cardsgrid.module.css";
-import CharacterCard from "./charactercard";
-import TransmissionCard from "./transmissioncard";
+import styles from "./WorldSection.module.css";
+import sectionStyles from "./SectionIntro.module.css";
+import gridStyles from "./CardsGrid.module.css";
+import CharacterCard from "./CharacterCard";
+import TransmissionCard from "./TransmissionCard";
 
 export default function WorldSection() {
   return (

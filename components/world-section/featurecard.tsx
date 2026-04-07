@@ -1,5 +1,5 @@
 import { ReactNode, CSSProperties } from "react";
-import styles from "./featurecard.module.css";
+import styles from "./FeatureCard.module.css";
 
 type FeatureCardProps = {
   children: ReactNode;

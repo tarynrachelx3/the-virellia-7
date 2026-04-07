@@ -32,6 +32,18 @@
     radial-gradient(circle at 50% 20%, rgba(255, 95, 95, 0.08), transparent 30%);
 }
 
+.heroBackground {
+  position: absolute;
+  inset: 0;
+}
+
+.heroImage {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
 .heroContent {
   position: relative;
   z-index: 2;
@@ -124,13 +136,6 @@
 .ghost {
   background: transparent;
   color: #f5f2eb;
-}
-
-.section {
-  width: min(1200px, calc(100% - 3rem));
-  margin: 0 auto;
-  padding: 5rem 0;
-  border-top: 1px solid rgba(245, 242, 235, 0.08);
 }
 
 .sectionHeader {
@@ -284,7 +289,6 @@
     padding: 7rem 1rem 2.5rem;
   }
 
-  .section,
   .finalCta {
     width: min(100% - 1.5rem, 1200px);
     padding: 4rem 0;

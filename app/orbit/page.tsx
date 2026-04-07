@@ -1,15 +1,27 @@
 // app/orbit/page.tsx
 
 import Link from "next/link";
-import { orbitPageContent } from "@/lib/orbitpagecontent";
-import styles from "./orbit.module.css";
+import { OrbitPageContent } from "@/lib/OrbitPageContent";
+import styles from "./Orbit.module.css";
+import Image from "next/image";
+import TextSection from "@/components/TextSection";
 
 export default function OrbitPage() {
-  const { hero } = orbitPageContent;
+  const { hero } = OrbitPageContent;
 
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
+
+        <div className={styles.heroBackground}>
+          <Image
+            src="/images/orbit-card.png"
+            alt="Orbit the Oracle"
+            fill
+            priority
+            className={styles.heroImage}
+          />
+        </div>
         <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
           <p className={styles.eyebrow}>{hero.eyebrow}</p>
@@ -31,12 +43,12 @@ export default function OrbitPage() {
       </section>
 
       <TextSection
-        id={orbitPageContent.bio.id}
-        label={orbitPageContent.bio.sectionLabel}
-        title={orbitPageContent.bio.title}
+        id={OrbitPageContent.bio.id}
+        label={OrbitPageContent.bio.sectionLabel}
+        title={OrbitPageContent.bio.title}
       >
         <div className={styles.copyStack}>
-          {orbitPageContent.bio.paragraphs.map((paragraph) => (
+          {OrbitPageContent.bio.paragraphs.map((paragraph) => (
             <p key={paragraph} className={styles.bodyCopy}>
               {paragraph}
             </p>
@@ -45,12 +57,12 @@ export default function OrbitPage() {
       </TextSection>
 
       <TextSection
-        id={orbitPageContent.traits.id}
-        label={orbitPageContent.traits.sectionLabel}
-        title={orbitPageContent.traits.title}
+        id={OrbitPageContent.traits.id}
+        label={OrbitPageContent.traits.sectionLabel}
+        title={OrbitPageContent.traits.title}
       >
         <ul className={styles.traitGrid}>
-          {orbitPageContent.traits.items.map((item) => (
+          {OrbitPageContent.traits.items.map((item) => (
             <li key={item} className={styles.traitCard}>
               {item}
             </li>
@@ -59,13 +71,13 @@ export default function OrbitPage() {
       </TextSection>
 
       <TextSection
-        id={orbitPageContent.music.id}
-        label={orbitPageContent.music.sectionLabel}
-        title={orbitPageContent.music.title}
+        id={OrbitPageContent.music.id}
+        label={OrbitPageContent.music.sectionLabel}
+        title={OrbitPageContent.music.title}
       >
-        <p className={styles.sectionIntro}>{orbitPageContent.music.intro}</p>
+        <p className={styles.sectionIntro}>{OrbitPageContent.music.intro}</p>
         <div className={styles.cardGrid}>
-          {orbitPageContent.music.tracks.map((track) => (
+          {OrbitPageContent.music.tracks.map((track) => (
             <article key={track.title} className={styles.infoCard}>
               <h3 className={styles.cardTitle}>{track.title}</h3>
               <p className={styles.cardText}>{track.description}</p>
@@ -75,12 +87,12 @@ export default function OrbitPage() {
       </TextSection>
 
       <TextSection
-        id={orbitPageContent.quotes.id}
-        label={orbitPageContent.quotes.sectionLabel}
-        title={orbitPageContent.quotes.title}
+        id={OrbitPageContent.quotes.id}
+        label={OrbitPageContent.quotes.sectionLabel}
+        title={OrbitPageContent.quotes.title}
       >
         <div className={styles.quoteStack}>
-          {orbitPageContent.quotes.items.map((quote) => (
+          {OrbitPageContent.quotes.items.map((quote) => (
             <blockquote key={quote} className={styles.quote}>
               “{quote.replace(/^“|”$/g, "")}”
             </blockquote>
@@ -89,13 +101,13 @@ export default function OrbitPage() {
       </TextSection>
 
       <TextSection
-        id={orbitPageContent.transmissions.id}
-        label={orbitPageContent.transmissions.sectionLabel}
-        title={orbitPageContent.transmissions.title}
+        id={OrbitPageContent.transmissions.id}
+        label={OrbitPageContent.transmissions.sectionLabel}
+        title={OrbitPageContent.transmissions.title}
       >
-        <p className={styles.sectionIntro}>{orbitPageContent.transmissions.intro}</p>
+        <p className={styles.sectionIntro}>{OrbitPageContent.transmissions.intro}</p>
         <div className={styles.cardGrid}>
-          {orbitPageContent.transmissions.items.map((item) => (
+          {OrbitPageContent.transmissions.items.map((item) => (
             <article key={item.title} className={styles.infoCard}>
               <h3 className={styles.cardTitle}>{item.title}</h3>
               <p className={styles.cardText}>{item.caption}</p>
@@ -105,12 +117,12 @@ export default function OrbitPage() {
       </TextSection>
 
       <TextSection
-        id={orbitPageContent.canon.id}
-        label={orbitPageContent.canon.sectionLabel}
-        title={orbitPageContent.canon.title}
+        id={OrbitPageContent.canon.id}
+        label={OrbitPageContent.canon.sectionLabel}
+        title={OrbitPageContent.canon.title}
       >
         <div className={styles.detailGrid}>
-          {orbitPageContent.canon.stats.map((stat) => (
+          {OrbitPageContent.canon.stats.map((stat) => (
             <div key={stat.label} className={styles.detailCard}>
               <p className={styles.detailLabel}>{stat.label}</p>
               <p className={styles.detailValue}>{stat.value}</p>
@@ -119,7 +131,7 @@ export default function OrbitPage() {
         </div>
 
         <ul className={styles.noteList}>
-          {orbitPageContent.canon.notes.map((note) => (
+          {OrbitPageContent.canon.notes.map((note) => (
             <li key={note} className={styles.noteItem}>
               {note}
             </li>
@@ -128,12 +140,12 @@ export default function OrbitPage() {
       </TextSection>
 
       <TextSection
-        id={orbitPageContent.gallery.id}
-        label={orbitPageContent.gallery.sectionLabel}
-        title={orbitPageContent.gallery.title}
+        id={OrbitPageContent.gallery.id}
+        label={OrbitPageContent.gallery.sectionLabel}
+        title={OrbitPageContent.gallery.title}
       >
         <div className={styles.galleryCaptionGrid}>
-          {orbitPageContent.gallery.captions.map((caption) => (
+          {OrbitPageContent.gallery.captions.map((caption) => (
             <div key={caption} className={styles.galleryCaptionCard}>
               {caption}
             </div>
@@ -142,12 +154,12 @@ export default function OrbitPage() {
       </TextSection>
 
       <TextSection
-        id={orbitPageContent.personality.id}
-        label={orbitPageContent.personality.sectionLabel}
-        title={orbitPageContent.personality.title}
+        id={OrbitPageContent.personality.id}
+        label={OrbitPageContent.personality.sectionLabel}
+        title={OrbitPageContent.personality.title}
       >
         <div className={styles.detailGrid}>
-          {orbitPageContent.personality.items.map((item) => (
+          {OrbitPageContent.personality.items.map((item) => (
             <div key={item.label} className={styles.detailCard}>
               <p className={styles.detailLabel}>{item.label}</p>
               <p className={styles.detailValue}>{item.value}</p>
@@ -157,12 +169,12 @@ export default function OrbitPage() {
       </TextSection>
 
       <TextSection
-        id={orbitPageContent.relationships.id}
-        label={orbitPageContent.relationships.sectionLabel}
-        title={orbitPageContent.relationships.title}
+        id={OrbitPageContent.relationships.id}
+        label={OrbitPageContent.relationships.sectionLabel}
+        title={OrbitPageContent.relationships.title}
       >
         <div className={styles.cardGrid}>
-          {orbitPageContent.relationships.items.map((item) => (
+          {OrbitPageContent.relationships.items.map((item) => (
             <Link key={item.name} href={item.href} className={styles.linkCard}>
               <h3 className={styles.cardTitle}>{item.name}</h3>
               <p className={styles.cardText}>{item.description}</p>
@@ -172,12 +184,12 @@ export default function OrbitPage() {
       </TextSection>
 
       <TextSection
-        id={orbitPageContent.motifs.id}
-        label={orbitPageContent.motifs.sectionLabel}
-        title={orbitPageContent.motifs.title}
+        id={OrbitPageContent.motifs.id}
+        label={OrbitPageContent.motifs.sectionLabel}
+        title={OrbitPageContent.motifs.title}
       >
         <ul className={styles.traitGrid}>
-          {orbitPageContent.motifs.items.map((item) => (
+          {OrbitPageContent.motifs.items.map((item) => (
             <li key={item} className={styles.traitCard}>
               {item}
             </li>
@@ -186,12 +198,12 @@ export default function OrbitPage() {
       </TextSection>
 
       <TextSection
-        id={orbitPageContent.status.id}
-        label={orbitPageContent.status.sectionLabel}
-        title={orbitPageContent.status.title}
+        id={OrbitPageContent.status.id}
+        label={OrbitPageContent.status.sectionLabel}
+        title={OrbitPageContent.status.title}
       >
         <div className={styles.detailGrid}>
-          {orbitPageContent.status.items.map((item) => (
+          {OrbitPageContent.status.items.map((item) => (
             <div key={item.label} className={styles.detailCard}>
               <p className={styles.detailLabel}>{item.label}</p>
               <p className={styles.detailValue}>{item.value}</p>
@@ -201,12 +213,12 @@ export default function OrbitPage() {
       </TextSection>
 
       <TextSection
-        id={orbitPageContent.merch.id}
-        label={orbitPageContent.merch.sectionLabel}
-        title={orbitPageContent.merch.title}
+        id={OrbitPageContent.merch.id}
+        label={OrbitPageContent.merch.sectionLabel}
+        title={OrbitPageContent.merch.title}
       >
         <div className={styles.merchRow}>
-          {orbitPageContent.merch.items.map((item) => (
+          {OrbitPageContent.merch.items.map((item) => (
             <span key={item} className={styles.merchTag}>
               {item}
             </span>
@@ -214,21 +226,21 @@ export default function OrbitPage() {
         </div>
 
         <Link
-          href={orbitPageContent.merch.cta.href}
+          href={OrbitPageContent.merch.cta.href}
           className={`${styles.button} ${styles.primary}`}
         >
-          {orbitPageContent.merch.cta.label}
+          {OrbitPageContent.merch.cta.label}
         </Link>
       </TextSection>
 
-      <section id={orbitPageContent.finalCta.id} className={styles.finalCta}>
+      <section id={OrbitPageContent.finalCta.id} className={styles.finalCta}>
         <h2 className={styles.finalCtaTitle}>
-          {orbitPageContent.finalCta.headline}
+          {OrbitPageContent.finalCta.headline}
         </h2>
-        <p className={styles.finalCtaText}>{orbitPageContent.finalCta.subhead}</p>
+        <p className={styles.finalCtaText}>{OrbitPageContent.finalCta.subhead}</p>
 
         <div className={styles.heroActions}>
-          {orbitPageContent.finalCta.actions.map((action) => (
+          {OrbitPageContent.finalCta.actions.map((action) => (
             <Link
               key={action.label}
               href={action.href}
@@ -240,24 +252,5 @@ export default function OrbitPage() {
         </div>
       </section>
     </main>
-  );
-}
-
-type TextSectionProps = {
-  id: string;
-  label: string;
-  title: string;
-  children: React.ReactNode;
-};
-
-function TextSection({ id, label, title, children }: TextSectionProps) {
-  return (
-    <section id={id} className={styles.section}>
-      <div className={styles.sectionHeader}>
-        <p className={styles.sectionLabel}>{label}</p>
-        <h2 className={styles.sectionTitle}>{title}</h2>
-      </div>
-      <div className={styles.sectionContent}>{children}</div>
-    </section>
   );
 }

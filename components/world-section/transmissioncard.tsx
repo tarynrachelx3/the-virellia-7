@@ -1,5 +1,5 @@
-import FeatureCard from "./featurecard";
-import styles from "./transmissioncard.module.css";
+import FeatureCard from "./FeatureCard";
+import styles from "./TransmissionCard.module.css";
 
 type TransmissionCardProps = {
   eyebrow: string;
