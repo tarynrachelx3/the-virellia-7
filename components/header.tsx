@@ -13,6 +13,7 @@ type NavItem =
 
 const navItems: NavItem[] = [
   { label: "HOME", href: "/" },
+  { label: "WORLD", href: "/world" },
   {
     label: "CHARACTERS",
     children: [
@@ -178,6 +179,10 @@ export default function Header() {
         <nav className="mobile-nav" aria-label="Mobile navigation">
           <Link href="/" className="mobile-nav-link" onClick={closeMenu}>
             HOME
+          </Link>
+
+          <Link href="/world" className="mobile-nav-link" onClick={closeMenu}>
+            World
           </Link>
 
           <div className="mobile-nav-group">
