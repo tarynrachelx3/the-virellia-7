@@ -1,0 +1,100 @@
+.lineageCard {
+  width: 100%;
+  text-align: left;
+  padding: 1.2rem;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.03);
+  color: inherit;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.lineageCard:hover,
+.active {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.lineageCardHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.designation,
+.region {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.lineageCardVisual {
+  position: relative;
+  min-height: 220px;
+  border-radius: 22px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.visualAura {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.18), transparent 52%);
+}
+
+.lineageCardBody {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.name {
+  font-size: 1.7rem;
+  margin: 0;
+}
+
+.energyType {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.summary {
+  margin: 0;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.lineageTraits {
+  margin: 0.4rem 0 0;
+  padding-left: 1rem;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.lineageFooter {
+  padding-top: 0.5rem;
+}
+
+.archiveLink {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.luminari .visualAura {
+  background: radial-gradient(circle at center, rgba(61, 255, 181, 0.28), transparent 52%);
+}
+
+.aetherion .visualAura {
+  background: radial-gradient(circle at center, rgba(105, 180, 255, 0.28), transparent 52%);
+}
+
+.pyroclast .visualAura {
+  background: radial-gradient(circle at center, rgba(255, 122, 64, 0.3), transparent 52%);
+}
+
+.verdantWeave .visualAura {
+  background: radial-gradient(circle at center, rgba(124, 201, 93, 0.28), transparent 52%);
+}

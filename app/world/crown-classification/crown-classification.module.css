@@ -1,0 +1,10 @@
+.classificationPage {
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(70, 255, 200, 0.08), transparent 28%),
+    radial-gradient(circle at 80% 20%, rgba(110, 140, 255, 0.08), transparent 24%),
+    #050608;
+  color: rgba(245, 247, 250, 0.96);
+  overflow: clip;
+}

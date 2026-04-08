@@ -1,0 +1,146 @@
+.classificationHero {
+  padding: 7rem 1.5rem 3rem;
+}
+
+.classificationHeroInner {
+  max-width: 1320px;
+  margin: 0 auto;
+  min-height: 72vh;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.classificationHeroCopy {
+  max-width: 640px;
+}
+
+.archiveLabel {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.64);
+  margin-bottom: 0.5rem;
+}
+
+.archiveSubLabel {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
+}
+
+.headline {
+  font-size: clamp(2.6rem, 5vw, 5rem);
+  line-height: 0.95;
+  margin: 0 0 1rem;
+}
+
+.description {
+  font-size: 1.04rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.74);
+  margin-bottom: 1.75rem;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 1.1rem;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.primaryButton {
+  background: rgba(255, 255, 255, 0.92);
+  color: #050608;
+}
+
+.secondaryButton {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.metaPill {
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.classificationHeroDiagram {
+  min-height: 540px;
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.08), transparent 36%),
+    rgba(255, 255, 255, 0.03);
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.diagramCenter {
+  width: 180px;
+  height: 180px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.diagramOrbit {
+  position: absolute;
+  inset: 0;
+}
+
+.diagramNode,
+.diagramHybridNode {
+  position: absolute;
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  background: rgba(10, 12, 16, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.88rem;
+}
+
+.diagramNode:nth-child(1) { top: 14%; left: 16%; }
+.diagramNode:nth-child(2) { top: 18%; right: 14%; }
+.diagramNode:nth-child(3) { bottom: 24%; left: 10%; }
+.diagramNode:nth-child(4) { bottom: 18%; right: 12%; }
+.diagramHybridNode:nth-child(5) { bottom: 8%; left: 28%; }
+.diagramHybridNode:nth-child(6) { bottom: 8%; right: 24%; }
+
+@media (max-width: 980px) {
+  .classificationHeroInner {
+    grid-template-columns: 1fr;
+  }
+
+  .classificationHeroDiagram {
+    min-height: 420px;
+  }
+}

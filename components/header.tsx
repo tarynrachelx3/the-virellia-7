@@ -4,45 +4,65 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+type NavChild = {
+  id: string;
+  label: string;
+  href: string;
+  blurb?: string;
+};
+
 type NavItem =
-  | { label: string; href: string }
   | {
+      id: string;
       label: string;
-      children: { label: string; href: string; blurb?: string }[];
+      href: string;
+    }
+  | {
+      id: string;
+      label: string;
+      children: NavChild[];
     };
 
 const navItems: NavItem[] = [
-  { label: "HOME", href: "/" },
-  { label: "WORLD", href: "/world" },
+  { id: "home", label: "HOME", href: "/" },
+  { id: "world", label: "WORLD", href: "/coming-soon" },
   {
+    id: "characters",
     label: "CHARACTERS",
     children: [
       {
+        id: "nova",
         label: "NOVA VOX",
         href: "/nova",
         blurb: "Alien pop sovereign. Velvet menace. Center of gravity.",
       },
       {
+        id: "orbit",
         label: "ORBIT THE ORACLE",
         href: "/orbit",
         blurb: "Romantic ruin. Prophet of emotional collapse.",
       },
       {
+        id: "maira",
         label: "MAIRA MOON",
         href: "/maira",
         blurb: "Human signal. Soft static. Close orbit.",
       },
     ],
   },
-  { label: "MUSIC", href: "/music" },
-  { label: "EPISODES", href: "/episodes" },
-  { label: "LORE", href: "/lore" },
-  { label: "MERCH", href: "/merch" },
+  { id: "music", label: "MUSIC", href: "/coming-soon" },
+  { id: "episodes", label: "EPISODES", href: "/coming-soon" },
+  { id: "lore", label: "LORE", href: "/coming-soon" },
+  { id: "merch", label: "MERCH", href: "/coming-soon" },
 ];
+
+function hasChildren(item: NavItem): item is Extract<NavItem, { children: NavChild[] }> {
+  return "children" in item;
+}
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [mobileCharactersOpen, setMobileCharactersOpen] = useState(false);
+  const [mobileOpenGroupId, setMobileOpenGroupId] = useState<string | null>(null);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -53,7 +73,11 @@ export default function Header() {
 
   const closeMenu = () => {
     setMenuOpen(false);
-    setMobileCharactersOpen(false);
+    setMobileOpenGroupId(null);
+  };
+
+  const toggleMobileGroup = (groupId: string) => {
+    setMobileOpenGroupId((prev) => (prev === groupId ? null : groupId));
   };
 
   return (
@@ -75,12 +99,8 @@ export default function Header() {
 
           <nav className="main-nav" aria-label="Primary navigation">
             {navItems.map((item) =>
-              "href" in item ? (
-                <Link key={item.href} href={item.href} className="nav-link">
-                  {item.label}
-                </Link>
-              ) : (
-                <div key={item.label} className="nav-dropdown">
+              hasChildren(item) ? (
+                <div key={item.id} className="nav-dropdown">
                   <button
                     type="button"
                     className="nav-link nav-trigger"
@@ -93,14 +113,12 @@ export default function Header() {
                   <div className="nav-mega-panel">
                     <div className="nav-mega-header">
                       <span className="nav-mega-kicker">Characters</span>
-                      <p className="nav-mega-copy">
-                        Main entities and close orbit.
-                      </p>
+                      <p className="nav-mega-copy">Main entities and close orbit.</p>
                     </div>
 
                     <div className="nav-mega-grid">
                       {item.children.map((child) => (
-                        <Link key={child.href} href={child.href} className="character-card">
+                        <Link key={child.id} href={child.href} className="character-card">
                           <span className="character-card-name">{child.label}</span>
                           {child.blurb ? (
                             <span className="character-card-blurb">{child.blurb}</span>
@@ -111,6 +129,10 @@ export default function Header() {
                     </div>
                   </div>
                 </div>
+              ) : (
+                <Link key={item.id} href={item.href} className="nav-link">
+                  {item.label}
+                </Link>
               )
             )}
           </nav>
@@ -177,57 +199,56 @@ export default function Header() {
         </div>
 
         <nav className="mobile-nav" aria-label="Mobile navigation">
-          <Link href="/" className="mobile-nav-link" onClick={closeMenu}>
-            HOME
-          </Link>
+          {navItems.map((item) =>
+            hasChildren(item) ? (
+              <div key={item.id} className="mobile-nav-group">
+                <button
+                  type="button"
+                  className={`mobile-nav-link mobile-nav-toggle ${
+                    mobileOpenGroupId === item.id ? "is-open" : ""
+                  }`}
+                  aria-expanded={mobileOpenGroupId === item.id}
+                  onClick={() => toggleMobileGroup(item.id)}
+                >
+                  <span>{item.label}</span>
+                  <span className="mobile-nav-toggle-icon">
+                    {mobileOpenGroupId === item.id ? "−" : "+"}
+                  </span>
+                </button>
 
-          <Link href="/world" className="mobile-nav-link" onClick={closeMenu}>
-            World
-          </Link>
-
-          <div className="mobile-nav-group">
-            <button
-              type="button"
-              className={`mobile-nav-link mobile-nav-toggle ${
-                mobileCharactersOpen ? "is-open" : ""
-              }`}
-              aria-expanded={mobileCharactersOpen}
-              onClick={() => setMobileCharactersOpen((prev) => !prev)}
-            >
-              <span>CHARACTERS</span>
-              <span className="mobile-nav-toggle-icon">{mobileCharactersOpen ? "−" : "+"}</span>
-            </button>
-
-            <div className={`mobile-subnav ${mobileCharactersOpen ? "is-open" : ""}`}>
-              <Link href="/nova" className="mobile-subnav-link" onClick={closeMenu}>
-                NOVA VOX
+                <div className={`mobile-subnav ${mobileOpenGroupId === item.id ? "is-open" : ""}`}>
+                  {item.children.map((child) => (
+                    <Link
+                      key={child.id}
+                      href={child.href}
+                      className="mobile-subnav-link"
+                      onClick={closeMenu}
+                    >
+                      {child.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={item.id}
+                href={item.href}
+                className="mobile-nav-link"
+                onClick={closeMenu}
+              >
+                {item.label}
               </Link>
-              <Link href="/orbit" className="mobile-subnav-link" onClick={closeMenu}>
-                ORBIT THE ORACLE
-              </Link>
-              <Link href="/maira" className="mobile-subnav-link" onClick={closeMenu}>
-                MAIRA MOON
-              </Link>
-            </div>
-          </div>
-
-          <Link href="/music" className="mobile-nav-link" onClick={closeMenu}>
-            MUSIC
-          </Link>
-          <Link href="/episodes" className="mobile-nav-link" onClick={closeMenu}>
-            EPISODES
-          </Link>
-          <Link href="/lore" className="mobile-nav-link" onClick={closeMenu}>
-            LORE
-          </Link>
-          <Link href="/merch" className="mobile-nav-link" onClick={closeMenu}>
-            MERCH
-          </Link>
+            )
+          )}
         </nav>
 
         <div className="mobile-menu-footer">
           <p className="mobile-menu-kicker">Current transmission</p>
-          <Link href="/music/low-gravity-problems" className="mobile-feature-card" onClick={closeMenu}>
+          <Link
+            href="/music/low-gravity-problems"
+            className="mobile-feature-card"
+            onClick={closeMenu}
+          >
             <span className="mobile-feature-label">Low Gravity Problems</span>
             <span className="mobile-feature-meta">Out now</span>
           </Link>
