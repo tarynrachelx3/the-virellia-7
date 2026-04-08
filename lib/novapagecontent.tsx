@@ -127,13 +127,13 @@ export const novaPageContent = {
   personality: {
     id: "personality",
     sectionLabel: "BEHAVIORAL PATTERNS",
-    title: "Predictable only in how dangerous she isn’t to herself.",
+    title: "Predictable only in how dangerous she isn`t to herself.",
     items: [
-      { label: "What she says", value: "“Interesting.” (It’s not.)" },
+      { label: "What she says", value: "“Interesting.” (It`s not.)" },
       { label: "What she avoids", value: "Explaining herself twice." },
-      { label: "What she notices", value: "Everything you hoped she wouldn’t." },
+      { label: "What she notices", value: "Everything you hoped she wouldn`t." },
       { label: "What ruins her mood", value: "Predictability." },
-      { label: "What she’d never admit", value: "She already knew how it would end." },
+      { label: "What she`d never admit", value: "She already knew how it would end." },
     ],
   },
 
@@ -144,12 +144,12 @@ export const novaPageContent = {
     items: [
       {
         name: "Orbit the Oracle",
-        description: "Loud feelings. Worse decisions. Still orbiting.",
+        description: "Loud feelings, worse decisions, and a gravitational pull he still hasn`t escaped.",
         href: "/orbit",
       },
       {
         name: "Maira",
-        description: "Human. Observant. Occasionally correct.",
+        description: "Her twin sister—quiet, observant, and tied to Nova in ways that feel deeper than explanation.",
         href: "/maira",
       },
     ],
