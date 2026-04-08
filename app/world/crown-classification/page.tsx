@@ -4,8 +4,8 @@ import { CrownClassificationHero } from "@/components/world/crown-classification
 import { CrownClassificationNav } from "@/components/world/crown-classification/crownclassificationnav";
 import { OriginPrincipleSection } from "@/components/world/crown-classification/originprincipalsection";
 import { LineageGridSection } from "@/components/world/crown-classification/lineagegridsection";
-// import { HybridClassificationsSection } from "@/components/world/crown-classification/HybridClassificationsSection";
-// import { TaxonomySection } from "@/components/world/crown-classification/TaxonomySection";
+import { HybridClassificationsSection } from "@/components/world/crown-classification/hybridclassificationsection";
+import { TaxonomySection } from "@/components/world/crown-classification/taxonomysection";
 // import { CrownProfilesSection } from "@/components/world/crown-classification/CrownProfilesSection";
 // import { DoctrineQuoteSection } from "@/components/world/crown-classification/DoctrineQuoteSection";
 // import { ArchiveCtaSection } from "@/components/world/crown-classification/ArchiveCtaSection";
@@ -21,9 +21,9 @@ export default function CrownClassificationPage() {
       <CrownClassificationNav />
       <OriginPrincipleSection />
       <LineageGridSection lineages={crownLineages} />
-      {/* <HybridClassificationsSection hybridClasses={hybridClasses} />
+      <HybridClassificationsSection hybridClasses={hybridClasses} />
       <TaxonomySection lineages={crownLineages} hybridClasses={hybridClasses} />
-      <CrownProfilesSection profiles={crownProfiles} />
+      {/* <CrownProfilesSection profiles={crownProfiles} />
       <DoctrineQuoteSection />
       <ArchiveCtaSection /> */}
     </main>

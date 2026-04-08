@@ -1,0 +1,26 @@
+.hybridCompareRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.compareCard {
+  padding: 1.1rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.compareCard h4 {
+  margin: 0 0 0.75rem;
+}
+
+.compareCard li {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+@media (max-width: 700px) {
+  .hybridCompareRow {
+    grid-template-columns: 1fr;
+  }
+}

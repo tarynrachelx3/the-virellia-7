@@ -1,0 +1,43 @@
+.taxonomyDiagram {
+  padding: 2rem;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.topNode,
+.branchNode,
+.childNode {
+  text-align: center;
+  border-radius: 18px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.topNode {
+  max-width: 320px;
+  margin: 0 auto 1.5rem;
+}
+
+.branchRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.branchColumn {
+  display: grid;
+  gap: 1rem;
+}
+
+.childGrid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+@media (max-width: 780px) {
+  .branchRow {
+    grid-template-columns: 1fr;
+  }
+}

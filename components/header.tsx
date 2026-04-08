@@ -16,19 +16,31 @@ type NavItem =
       id: string;
       label: string;
       href: string;
+      blurb?: string;
     }
   | {
       id: string;
       label: string;
+      blurb: string;
       children: NavChild[];
     };
 
 const navItems: NavItem[] = [
   { id: "home", label: "HOME", href: "/" },
-  { id: "world", label: "WORLD", href: "/coming-soon" },
+  { id: "world", 
+    label: "WORLD", 
+    blurb: "The Virellia-7 system and its inhabitants.",
+    children: [
+      { id: "crown-classification", 
+        label: "CROWN CLASSIFICATION", 
+        href: "/world/crown-classification" 
+      },
+    ] 
+  },
   {
     id: "characters",
     label: "CHARACTERS",
+    blurb: "Main entities and close orbit.",
     children: [
       {
         id: "nova",
@@ -112,8 +124,8 @@ export default function Header() {
 
                   <div className="nav-mega-panel">
                     <div className="nav-mega-header">
-                      <span className="nav-mega-kicker">Characters</span>
-                      <p className="nav-mega-copy">Main entities and close orbit.</p>
+                      <span className="nav-mega-kicker">{item.label}</span>
+                      <p className="nav-mega-copy">{item.blurb}</p>
                     </div>
 
                     <div className="nav-mega-grid">
