@@ -1,0 +1,98 @@
+.lineageExpandedPanel {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 1.5rem;
+  padding: 1.4rem;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.visualColumn {
+  min-width: 0;
+}
+
+.visualFrame {
+  min-height: 420px;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.visualGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.18), transparent 52%);
+}
+
+.contentColumn {
+  padding: 0.5rem 0;
+}
+
+.designation {
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.75rem;
+}
+
+.name {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 0.5rem;
+}
+
+.region {
+  color: rgba(255, 255, 255, 0.72);
+  margin-bottom: 1.25rem;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.contentBlock {
+  padding: 1.1rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.contentBlock h4 {
+  margin: 0 0 0.75rem;
+}
+
+.contentBlock p,
+.contentBlock li,
+.contentBlock a {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.luminari .visualGlow {
+  background: radial-gradient(circle at center, rgba(61, 255, 181, 0.3), transparent 52%);
+}
+
+.aetherion .visualGlow {
+  background: radial-gradient(circle at center, rgba(105, 180, 255, 0.28), transparent 52%);
+}
+
+.pyroclast .visualGlow {
+  background: radial-gradient(circle at center, rgba(255, 122, 64, 0.32), transparent 52%);
+}
+
+.verdantWeave .visualGlow {
+  background: radial-gradient(circle at center, rgba(124, 201, 93, 0.28), transparent 52%);
+}
+
+@media (max-width: 980px) {
+  .lineageExpandedPanel {
+    grid-template-columns: 1fr;
+  }
+
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+}

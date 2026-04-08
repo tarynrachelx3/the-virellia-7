@@ -1,0 +1,65 @@
+.originSection {
+  padding: 5rem 1.5rem;
+}
+
+.originPanel {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 3rem;
+  border-radius: 28px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.58);
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: clamp(1.9rem, 3.8vw, 3.4rem);
+  line-height: 1.08;
+  max-width: 900px;
+  margin: 0 auto 2rem;
+}
+
+.originStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.statCard {
+  padding: 1.3rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.statLabel {
+  display: block;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.56);
+  margin-bottom: 0.65rem;
+}
+
+.statValue {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 800px) {
+  .originStats {
+    grid-template-columns: 1fr;
+  }
+
+  .originPanel {
+    padding: 2rem 1.25rem;
+  }
+}
